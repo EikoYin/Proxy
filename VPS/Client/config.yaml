@@ -21,4 +21,3 @@ proxies:
     reality-opts:
       public-key: "isHHHncla_Fe6qfmqx9ttrxuieDSRmpVdQv3MRG8wEk"
       short-id: "5b0ce90aa3e56379"
-    skip-cert-verify: false
