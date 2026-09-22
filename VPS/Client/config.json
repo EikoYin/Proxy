@@ -1,0 +1,33 @@
+"outbounds": [
+  {
+    "tag": "SS",
+    "type": "shadowsocks",
+    "server": "70.39.202.140",
+    "server_port": 80,
+    "method": "2022-blake3-aes-128-gcm",
+    "password": "WzlqL1gWDG6r2E0UaqvmfA==",
+    "detour": "Transfer"
+  },
+  {
+    "tag": "VLESS-Vision-Reality",
+    "type": "vless",
+    "server": "70.39.202.140",
+    "server_port": 443,
+    "uuid": "b65bc998-b7e3-46cc-beb4-9fd6ab602a91",
+    "tls": {
+      "enabled": true,
+      "server_name": "updates.cdn-apple.com",
+      "reality": {
+        "enabled": true,
+        "public_key": "isHHHncla_Fe6qfmqx9ttrxuieDSRmpVdQv3MRG8wEk",
+        "short_id": "5b0ce90aa3e56379"
+      },
+      "utls": {
+        "enabled": true,
+        "fingerprint": "chrome"
+      }
+    },
+    "packet_encoding": "xudp",
+    "flow": "xtls-rprx-vision"
+  }
+]
