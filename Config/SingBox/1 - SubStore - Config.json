@@ -15,8 +15,7 @@
     },
     "cache_file": {
       "enabled": true,
-      "path": "/etc/momo/run/cache.db",
-      "store_fakeip": false
+      "path": "/etc/momo/run/cache.db"
     }
   },
 
@@ -28,7 +27,7 @@
     "rules": [
       {"clash_mode": "Direct", "server": "LocalDNS"},
       {"clash_mode": "Global", "server": "ProxyDNS"},
-	  {"query_type": "HTTPS", "action": "reject"},
+	  {"query_type": ["HTTPS", "SVCB"], "action": "reject"},
       {"rule_set": ["geosite-private", "geosite-cn"], "server": "LocalDNS"},
       {"rule_set": ["geosite-gfw", "geosite-geolocation-!cn"], "server": "ProxyDNS"}
     ],
@@ -113,8 +112,9 @@
 
   "route": {
     "rules": [
-      {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
-      {"inbound": "dns-in", "action": "hijack-dns"},
+      {"type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns"},
+	  {"type": "logical", "mode": "or", "rules": [{"port": 853}, {"protocol": ["stun", "quic"]}], "action": "reject", "no_drop": true},
+	  {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"], "timeout": "500ms"},
       {"clash_mode": "Direct", "outbound": "Direct"},
       {"clash_mode": "Global", "outbound": "GLOBAL"},
       {"rule_set": ["geoip-private", "geosite-private"], "outbound": "Direct"},
