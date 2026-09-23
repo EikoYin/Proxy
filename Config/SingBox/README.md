@@ -14,25 +14,27 @@
 
 ~~all~~
 
-"inbounds": [
-  {
-    "tag": "tun-in",
-    "type": "tun",
-    "address": [
-      "172.18.0.1/30",
-      "fdfe:dcba:9876::1/126"
-    ],
-    "stack": "mixed",
-    "auto_route": true,
-    "auto_redirect": true
-  },
-  {
-    "tag": "mixed-in",
-    "type": "mixed",
-    "listen": "0.0.0.0",
-    "listen_port": 7890
-  }
-]
+```json
+  "inbounds": [
+    {
+      "tag": "tun-in",
+      "type": "tun",
+      "address": [
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+      "stack": "mixed",
+      "auto_route": true,
+      "auto_redirect": true
+    },
+    {
+	  "tag": "mixed-in",
+      "type": "mixed",
+      "listen": "0.0.0.0",
+      "listen_port": 7890
+    }
+  ],
+```
 
 - route
 
