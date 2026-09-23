@@ -26,11 +26,11 @@ external-ui: "/etc/mihomo/run/ui"
 
 ~~auto-detect-interface: false~~
 
+```yaml
 auto-route: true
-
 auto-redirect: true
-
 auto-detect-interface: true
+```
 
 ## DNS模块
 
@@ -60,9 +60,10 @@ auto-detect-interface: true
 
 ~~auto-detect-interface: false~~
 
+```yaml
 auto-route: true
-
 auto-detect-interface: true
+```
 
 ## DNS模块
 
