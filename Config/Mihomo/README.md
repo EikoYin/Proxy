@@ -2,10 +2,13 @@
 
 - 全局配置
 
-~~port: 8080
-socks-port: 1080
-redir-port: 7891
-tproxy-port: 7892~~
+~~port: 8080~~
+
+~~socks-port: 1080~~
+
+~~redir-port: 7891~~
+
+~~tproxy-port: 7892~~
 
 - 控制面板
 
