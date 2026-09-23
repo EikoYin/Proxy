@@ -1,6 +1,6 @@
 # Nikki → Core
 
-- 全局配置
+## 全局配置
 
 ~~port: 8080~~
 
@@ -10,13 +10,13 @@
 
 ~~tproxy-port: 7892~~
 
-- 控制面板
+## 控制面板
 
 ~~external-ui: "/etc/nikki/run/ui"~~
 
 external-ui: "/etc/mihomo/run/ui"
 
-- 入站
+## 入站
 
 ~~auto-route: false~~
 
@@ -30,13 +30,13 @@ auto-redirect: true
 
 auto-detect-interface: true
 
-- DNS模块
+## DNS模块
 
 ~~listen: 0.0.0.0:1053~~
 
 # Nikki → Mobile
 
-- 全局配置
+## 全局配置
 
 ~~port: 8080~~
 
@@ -46,11 +46,11 @@ auto-detect-interface: true
 
 ~~tproxy-port: 7892~~
 
-- 控制面板
+## 控制面板
 
 ~~all~~
 
-- 入站
+## 入站
 
 ~~auto-route: false~~
 
@@ -62,6 +62,6 @@ auto-route: true
 
 auto-detect-interface: true
 
-- DNS模块
+## DNS模块
 
 ~~listen: 0.0.0.0:1053~~
