@@ -14,7 +14,7 @@ sing-box generate rand --base64 16
 sing-box generate uuid
 ```
 
-- public_key | private_key
+- private_key | public_key
 
 ```bash
 sing-box generate reality-keypair
