@@ -4,11 +4,13 @@
 
 ~~"external_ui": "/etc/momo/run/ui"~~
 
+```json
+"external_ui": "/etc/sing-box/run/ui"
+```
+
 ~~"path": "/etc/momo/run/cache.db"~~
 
 ```json
-"external_ui": "/etc/sing-box/run/ui"
-
 "path": "/etc/sing-box/run/cache.db"
 ```
 
