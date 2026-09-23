@@ -12,7 +12,7 @@
       "listen": "::",
       "listen_port": 80,
       "method": "2022-blake3-aes-128-gcm",
-      "password": "WzlqL1gWDG6r2E0UaqvmfA==", // 执行 sing-box generate rand --base64 16 生成
+      "password": "WzlqL1gWDG6r2E0UaqvmfA==",
       "multiplex": {
           "enabled": true
       }
@@ -24,7 +24,7 @@
       "listen_port":443,
       "users":[
           {
-              "uuid":"b65bc998-b7e3-46cc-beb4-9fd6ab602a91", //  执行 sing-box generate uuid 生成
+              "uuid":"b65bc998-b7e3-46cc-beb4-9fd6ab602a91",
               "flow":"xtls-rprx-vision"
           }
       ],
@@ -37,9 +37,9 @@
                   "server":"updates.cdn-apple.com",
                   "server_port":443
               },
-              "private_key":"0HjIyswLpJkdUXi8qqS5ZKSMwbr3KPtGIYcrKJSNFk0", // 执行 sing-box generate reality-keypair 生成
+              "private_key":"0HjIyswLpJkdUXi8qqS5ZKSMwbr3KPtGIYcrKJSNFk0",
               "short_id":[
-                  "5b0ce90aa3e56379" // 执行 sing-box generate rand 8 --hex 生成
+                  "5b0ce90aa3e56379"
               ]
           }
       }
