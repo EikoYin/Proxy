@@ -2,7 +2,7 @@
 
 - Mihomo、SingBox 自定义分流规则
 
-- VPS 自建节点（Shadowsocks、VLESS-Vision-Reality）配置
+- VPS 自建节点配置（Shadowsocks、VLESS-Vision-Reality）
 
 - Icon 定制
 
