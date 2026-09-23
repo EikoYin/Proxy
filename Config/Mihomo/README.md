@@ -48,15 +48,7 @@ auto-detect-interface: true
 
 - 控制面板
 
-~~external-controller: 0.0.0.0:9090~~
-
-~~external-ui: "/etc/nikki/run/ui"~~
-
-~~external-ui-name: zashboard~~
-
-~~external-ui-url: "https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip"~~
-
-~~secret: ""~~
+~~all~~
 
 - 入站
 
