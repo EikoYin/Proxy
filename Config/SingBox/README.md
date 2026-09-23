@@ -2,11 +2,13 @@
 
 ## experimental
 
-<pre><code><del>"external_ui": "/etc/momo/run/ui"
-"path": "/etc/momo/run/cache.db"</del>
+~~"external_ui": "/etc/momo/run/ui"~~
+
+~~"path": "/etc/momo/run/cache.db"~~
 
 "external_ui": "/etc/sing-box/run/ui"
-"path": "/etc/sing-box/run/cache.db"</code></pre>
+
+"path": "/etc/sing-box/run/cache.db"
 
 ## inbounds
 
