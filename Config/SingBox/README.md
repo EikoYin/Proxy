@@ -14,7 +14,7 @@
 
 ~~all~~
 
-  "inbounds": [
+  `"inbounds": [
     {
       "tag": "tun-in",
       "type": "tun",
@@ -32,7 +32,7 @@
       "listen": "0.0.0.0",
       "listen_port": 7890
     }
-  ],
+  ],`
 
 - route
 
