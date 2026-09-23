@@ -4,48 +4,48 @@
     "level": "info",
     "timestamp": true
   },
-  
+
   "inbounds": [
     {
-      "tag":"SS",
+      "tag": "SS",
       "type": "shadowsocks",
       "listen": "::",
       "listen_port": 80,
       "method": "2022-blake3-aes-128-gcm",
       "password": "WzlqL1gWDG6r2E0UaqvmfA==",
       "multiplex": {
-          "enabled": true
+        "enabled": true
       }
     },
     {
-      "tag":"VLESS-Vision-Reality",
-      "type":"vless",
-      "listen":"::",
-      "listen_port":443,
-      "users":[
-          {
-              "uuid":"b65bc998-b7e3-46cc-beb4-9fd6ab602a91",
-              "flow":"xtls-rprx-vision"
-          }
+      "tag": "VLESS-Vision-Reality",
+      "type": "vless",
+      "listen": "::",
+      "listen_port": 443,
+      "users": [
+        {
+          "uuid": "b65bc998-b7e3-46cc-beb4-9fd6ab602a91",
+          "flow": "xtls-rprx-vision"
+        }
       ],
-      "tls":{
-          "enabled":true,
-          "server_name":"updates.cdn-apple.com",
-          "reality":{
-              "enabled":true,
-              "handshake":{
-                  "server":"updates.cdn-apple.com",
-                  "server_port":443
-              },
-              "private_key":"0HjIyswLpJkdUXi8qqS5ZKSMwbr3KPtGIYcrKJSNFk0",
-              "short_id":[
-                  "5b0ce90aa3e56379"
-              ]
-          }
+      "tls": {
+        "enabled": true,
+        "server_name": "updates.cdn-apple.com",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "updates.cdn-apple.com",
+            "server_port": 443
+          },
+          "private_key": "0HjIyswLpJkdUXi8qqS5ZKSMwbr3KPtGIYcrKJSNFk0",
+          "short_id": [
+            "5b0ce90aa3e56379"
+          ]
+        }
       }
     }
   ],
-  
+
   "outbounds": [
     {
       "tag": "Direct",
