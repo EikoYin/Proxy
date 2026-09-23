@@ -60,6 +60,7 @@
 
 ~~all~~
 
+```json
   "inbounds": [
     {
       "tag": "tun-in",
@@ -78,6 +79,7 @@
       "listen_port": 7890
     }
   ],
+```
 
 - route
 
