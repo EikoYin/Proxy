@@ -42,7 +42,9 @@
 
 ~~"auto_detect_interface": false~~
 
+```json
 "auto_detect_interface": true
+```
 
 # Momo → Mobile
 
@@ -87,7 +89,8 @@
 
 ~~"auto_detect_interface": false~~
 
+```json
 "auto_detect_interface": true
-
+```
 
 
