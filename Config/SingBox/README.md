@@ -10,7 +10,7 @@
 
 "path": "/etc/sing-box/run/cache.db"
 
-- inbounds
+## inbounds
 
 ~~all~~
 
@@ -36,7 +36,7 @@
   ],
 ```
 
-- route
+## route
 
 ~~"auto_detect_interface": false~~
 
@@ -44,7 +44,7 @@
 
 # Momo → Mobile
 
-- experimental
+## experimental
 
 ~~"external_controller": "0.0.0.0:9090"~~
 
@@ -56,7 +56,7 @@
 
 ~~"path": "/etc/momo/run/cache.db"~~
 
-- inbounds
+## inbounds
 
 ~~all~~
 
@@ -81,7 +81,7 @@
   ],
 ```
 
-- route
+## route
 
 ~~"auto_detect_interface": false~~
 
