@@ -14,7 +14,9 @@
 
 ~~external-ui: "/etc/nikki/run/ui"~~
 
+```yaml
 external-ui: "/etc/mihomo/run/ui"
+```
 
 ## 入站
 
