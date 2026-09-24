@@ -6,7 +6,7 @@
 
 - SubStore JS脚本
 
-- iOS Quantumult X 和 Loon DNS防泄漏规则
+- iOS Quantumult X 和 Loon 防 DNS 泄漏分流规则
 
 - Icon 定制
 
