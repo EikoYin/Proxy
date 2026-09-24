@@ -42,6 +42,12 @@
 
 ## route
 
+~~{"inbound": "dns-in", "action": "hijack-dns"}~~
+
+```json
+{"type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns"}
+```
+
 ~~"auto_detect_interface": false~~
 
 ```json
@@ -88,6 +94,12 @@
 ```
 
 ## route
+
+~~{"inbound": "dns-in", "action": "hijack-dns"}~~
+
+```json
+{"type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns"}
+```
 
 ~~"auto_detect_interface": false~~
 
