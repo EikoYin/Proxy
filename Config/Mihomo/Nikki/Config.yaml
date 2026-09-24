@@ -141,7 +141,7 @@ proxy-groups:
 # 规则匹配
 rules:
   - AND,((RULE-SET,gfw_domain),(DST-PORT,443),(NETWORK,UDP)),REJECT
-  - AND,((RULE-SET,geolocation-!cn_domain),(DST-PORT,443),(NETWORK,UDP)),REJECT
+  - AND,((RULE-SET,geolocation-!cn_domain),(DST-PORT,443),(NETWORK,UDP)),REJECT
   - RULE-SET, private_ip, Direct, no-resolve
   - RULE-SET, private_domain, Direct
   - RULE-SET, ai_domain, AI
