@@ -12,7 +12,7 @@ proxy-providers:
 
 # 节点信息
 proxies:
-  - {name: Direct, type: direct}    
+  - {name: "Direct", type: direct}    
 
 # 全局配置 
 port: 8080
