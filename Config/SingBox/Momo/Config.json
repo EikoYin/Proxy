@@ -112,7 +112,7 @@
   
   "route": {
     "rules": [
-      {"type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns"},
+      {"inbound": "dns-in", "action": "hijack-dns"},
 	  {"type": "logical", "mode": "or", "rules": [{"port": 853}, {"protocol": ["stun", "quic"]}], "action": "reject", "no_drop": true},
 	  {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"], "timeout": "500ms"},
       {"clash_mode": "Direct", "outbound": "Direct"},
