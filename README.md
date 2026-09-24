@@ -4,7 +4,7 @@
 
 - VPS 自建节点配置（Shadowsocks、VLESS-Vision-Reality）
 
-- SubStore JS脚本
+- SubStore JS 脚本
 
 - iOS Quantumult X 和 Loon 防 DNS 泄漏分流规则
 
