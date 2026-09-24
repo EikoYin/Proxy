@@ -77,6 +77,7 @@ tun:
 dns:
   enable: true
   cache-algorithm: arc
+  respect-rules: true
   listen: 0.0.0.0:1053
   ipv6: true
   enhanced-mode: fake-ip
@@ -103,6 +104,7 @@ dns:
   direct-nameserver:
     - 223.5.5.5
     - 119.29.29.29
+  direct-nameserver-follow-policy: true
   nameserver-policy:
     "rule-set:private_domain,cn_domain":
       - 223.5.5.5
