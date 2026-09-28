@@ -1,12 +1,12 @@
 #LAN / 私有域
 localhost
-*.lan
++.lan
++.local
 *.localdomain
 *.example
 *.invalid
 *.localhost
 *.test
-*.local
 *.home.arpa
 *.direct
 PDC._msDCS.*.*
