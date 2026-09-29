@@ -30,8 +30,6 @@ route-exclude-address-set:
 
 # Nikki → Mobile
 
-## 全局配置
-
 ~~port: 8080~~
 
 ~~socks-port: 1080~~
@@ -40,11 +38,11 @@ route-exclude-address-set:
 
 ~~tproxy-port: 7892~~
 
-## 控制面板
+## external
 
 ~~all~~
 
-## 入站
+## tun
 
 ~~auto-route: false~~
 
@@ -57,6 +55,6 @@ auto-route: true
 auto-detect-interface: true
 ```
 
-## DNS模块
+## dns
 
 ~~listen: 0.0.0.0:1053~~
