@@ -17,11 +17,11 @@
 ~~auto-detect-interface: false~~
 
 ```yaml
-auto-route: true
-auto-redirect: true
-auto-detect-interface: true
-route-exclude-address-set:
-  - cn_ip
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  route-exclude-address-set:
+    - cn_ip
 ```
 
 ## dns
@@ -51,8 +51,8 @@ route-exclude-address-set:
 ~~auto-detect-interface: false~~
 
 ```yaml
-auto-route: true
-auto-detect-interface: true
+  auto-route: true
+  auto-detect-interface: true
 ```
 
 ## dns
