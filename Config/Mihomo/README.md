@@ -1,7 +1,5 @@
 # Nikki → Core
 
-## 全局配置
-
 ~~port: 8080~~
 
 ~~socks-port: 1080~~
@@ -10,15 +8,7 @@
 
 ~~tproxy-port: 7892~~
 
-## 控制面板
-
-~~external-ui: "/etc/nikki/run/ui"~~
-
-```yaml
-external-ui: "/etc/mihomo/run/ui"
-```
-
-## 入站
+## tun
 
 ~~auto-route: false~~
 
@@ -30,9 +20,11 @@ external-ui: "/etc/mihomo/run/ui"
 auto-route: true
 auto-redirect: true
 auto-detect-interface: true
+route-exclude-address-set:
+  - cn_ip
 ```
 
-## DNS模块
+## dns
 
 ~~listen: 0.0.0.0:1053~~
 
