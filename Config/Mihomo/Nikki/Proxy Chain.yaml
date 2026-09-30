@@ -113,7 +113,6 @@ proxy-groups:
   - {name: OneDrive, <<: *pr, icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/OneDrive.png"}
   - {name: Telegram, <<: *pr, icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png"}
   - {name: TikTok, <<: *pr, icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok_1.png"}
-  - {name: Bilibili, <<: *pr, icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png"}
   - {name: YouTube, <<: *pr, icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png"}
   - {name: Netflix, <<: *pr, icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png"}
   - {name: Spotify, <<: *pr, icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png"}
@@ -129,10 +128,9 @@ proxy-groups:
   - {name: Korea, type: url-test, include-all: true, filter: "(?=.*(韩|KR|(?i)Korea))^((?!(VPS)).)*$", url: "https://www.gstatic.com/generate_204", interval: 300, tolerance: 20, icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"}
   - {name: United States, type: url-test, include-all: true, filter: "(?=.*(美|US|(?i)States|America))^((?!(VPS)).)*$", url: "https://www.gstatic.com/generate_204", interval: 300, tolerance: 20, icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"}
   - {name: Transfer, type: select, proxies: [Hong Kong, Tai Wan, Singapore, Japan, Korea, United States], icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png"}
-  - {name: GLOBAL, type: select, proxies: [Static, Speed Test, Proxy, Exit, AI, GitHub, OneDrive, Telegram, TikTok, Bilibili, YouTube, Netflix, Spotify, Game, Google, Microsoft, Apple, Final, Hong Kong, Tai Wan, Singapore, Japan, Korea, United States, Transfer, Direct], icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"}
+  - {name: GLOBAL, type: select, proxies: [Static, Speed Test, Proxy, Exit, AI, GitHub, OneDrive, Telegram, TikTok, YouTube, Netflix, Spotify, Game, Google, Microsoft, Apple, Final, Hong Kong, Tai Wan, Singapore, Japan, Korea, United States, Transfer, Direct], icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"}
 
 rules:
-  - AND, ((RULE-SET, gfw_domain), (DST-PORT, 443), (NETWORK, UDP)), REJECT
   - AND, ((RULE-SET, geolocation-!cn_domain), (DST-PORT, 443), (NETWORK, UDP)), REJECT
   - RULE-SET, private_ip, Direct, no-resolve
   - RULE-SET, private_domain, Direct
@@ -141,28 +139,21 @@ rules:
   - RULE-SET, onedrive_domain, OneDrive
   - RULE-SET, telegram_domain, Telegram
   - RULE-SET, tiktok_domain, TikTok
-  - RULE-SET, bilibili_domain, Bilibili
   - RULE-SET, youtube_domain, YouTube
   - RULE-SET, netflix_domain, Netflix
   - RULE-SET, spotify_domain, Spotify
   - RULE-SET, steam_domain, Game 
   - RULE-SET, epicgames_domain, Game
   - RULE-SET, ea_domain, Game
-  - RULE-SET, blizzard_domain, Game
   - RULE-SET, playstation_domain, Game
   - RULE-SET, nintendo_domain, Game
   - RULE-SET, xbox_domain, Game
   - RULE-SET, google_domain, Google
   - RULE-SET, microsoft_domain, Microsoft
   - RULE-SET, apple_domain, Apple
-  - RULE-SET, gfw_domain, Static
   - RULE-SET, geolocation-!cn_domain, Static
   - RULE-SET, cn_domain, Direct
   - RULE-SET, telegram_ip, Telegram
-  - RULE-SET, bilibili_ip, Bilibili
-  - RULE-SET, netflix_ip, Netflix
-  - RULE-SET, google_ip, Google
-  - RULE-SET, apple_ip, Apple
   - RULE-SET, cn_ip, Direct
   - MATCH, Final
 
@@ -176,26 +167,19 @@ rule-providers:
   onedrive_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/onedrive.mrs"}
   telegram_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/telegram.mrs"}
   tiktok_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tiktok.mrs"}
-  bilibili_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/bilibili.mrs"}
   youtube_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/youtube.mrs"}
   netflix_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/netflix.mrs"}
   spotify_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/spotify.mrs"}
   steam_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/steam.mrs"}
   epicgames_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/epicgames.mrs"}
   ea_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/ea.mrs"}
-  blizzard_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/blizzard.mrs"}
   playstation_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/playstation.mrs"}
   nintendo_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/nintendo.mrs"}
   xbox_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/xbox.mrs"}
   google_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/google.mrs"}
   microsoft_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/microsoft.mrs"}
   apple_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/apple.mrs"}
-  gfw_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/gfw.mrs"}
   geolocation-!cn_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/geolocation-!cn.mrs"}
   cn_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.mrs"}
   telegram_ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/telegram.mrs"}
-  bilibili_ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/bilibili.mrs"}
-  netflix_ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/netflix.mrs"}
-  google_ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/google.mrs"}
-  apple_ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo-lite/geoip/apple.mrs"}
   cn_ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs"}
