@@ -152,7 +152,6 @@ rules:
   - RULE-SET, microsoft_domain, Microsoft
   - RULE-SET, apple_domain, Apple
   - RULE-SET, geolocation-!cn_domain, Static
-  - RULE-SET, cn_domain, Direct
   - RULE-SET, telegram_ip, Telegram
   - RULE-SET, cn_ip, Direct
   - MATCH, Final
