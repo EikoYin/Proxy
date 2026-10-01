@@ -65,7 +65,7 @@ dns:
   fake-ip-filter:
     - "+.googleapis.cn"
     - "+.xn--ngstr-lra8j.com"
-    - "rule-set:fakeipfilter_cn,fakeipfilter_!cn,private_domain,cn_domain"
+    - "rule-set:fakeipfilter_cn,fakeipfilter_!cn,private_domain,steam@cn_domain,nintendo@cn_domain,xbox@cn_domain,microsoft@cn_domain,apple@cn_domain,cn_domain"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
@@ -76,7 +76,7 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
   nameserver-policy:
-    "rule-set:fakeipfilter_cn,private_domain,cn_domain":
+    "rule-set:fakeipfilter_cn,private_domain,steam@cn_domain,nintendo@cn_domain,xbox@cn_domain,microsoft@cn_domain,apple@cn_domain,cn_domain":
       - https://dns.alidns.com/dns-query#disable-qtype-65=true
       - https://doh.pub/dns-query#disable-qtype-65=true
     "rule-set:fakeipfilter_!cn":
