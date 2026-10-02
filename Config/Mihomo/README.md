@@ -61,4 +61,4 @@
 
 # Nikki → Mobile
 
-同 Nikki → PC
+同 **Nikki → PC**
