@@ -115,8 +115,8 @@
     {"tag": "Japan", "type": "urltest", "outbounds": []},
     {"tag": "Korea", "type": "urltest", "outbounds": []},
     {"tag": "United States", "type": "urltest", "outbounds": []},
-    {"tag": "GLOBAL", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "AI", "GitHub", "OneDrive", "Telegram", "TikTok", "YouTube", "Netflix", "Spotify", "Game", "Google", "Microsoft", "Apple", "Final", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
-    {"tag": "Direct", "type": "direct"}
+    {"tag": "Direct", "type": "direct"},
+	{"tag": "GLOBAL", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "AI", "GitHub", "OneDrive", "Telegram", "TikTok", "YouTube", "Netflix", "Spotify", "Game", "Google", "Microsoft", "Apple", "Final", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]}
   ],
 
   "route": {
