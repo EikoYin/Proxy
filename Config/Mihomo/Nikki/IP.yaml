@@ -65,7 +65,7 @@ dns:
   fake-ip-filter:
     - "+.googleapis.cn"
     - "+.xn--ngstr-lra8j.com"
-    - "rule-set:fakeipfilter_cn,fakeipfilter_!cn,private_domain,steam@cn_domain,nintendo@cn_domain,xbox@cn_domain,microsoft@cn_domain,apple@cn_domain,cn_domain"
+    - "rule-set:fakeipfilter-cn,fakeipfilter-!cn,private-domain,steam@cn-domain,nintendo@cn-domain,xbox@cn-domain,microsoft@cn-domain,apple@cn-domain,cn-domain"
   default-nameserver:
     - 223.5.5.5
     - 119.29.29.29
@@ -76,10 +76,10 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
   nameserver-policy:
-    "rule-set:fakeipfilter_cn,private_domain,steam@cn_domain,nintendo@cn_domain,xbox@cn_domain,microsoft@cn_domain,apple@cn_domain,cn_domain":
+    "rule-set:fakeipfilter-cn,private-domain,steam@cn-domain,nintendo@cn-domain,xbox@cn-domain,microsoft@cn-domain,apple@cn-domain,cn-domain":
       - https://dns.alidns.com/dns-query#disable-qtype-65=true
       - https://doh.pub/dns-query#disable-qtype-65=true
-    "rule-set:fakeipfilter_!cn":
+    "rule-set:fakeipfilter-!cn":
       - https://dns.google/dns-query#Static&disable-qtype-65=true
   nameserver:
     - https://dns.google/dns-query#Static&ecs=223.5.5.0/24
@@ -141,64 +141,64 @@ proxy-groups:
   - {name: GLOBAL, type: select, proxies: [Static, Speed Test, Proxy, AI, GitHub, OneDrive, Telegram, TikTok, YouTube, Netflix, Spotify, Game, Google, Microsoft, Apple, Final, Hong Kong, Tai Wan, Singapore, Japan, Korea, United States, Hong Kong - Select, Tai Wan - Select, Singapore - Select, Japan - Select, Korea - Select, United States - Select, Hong Kong - UrlTest, Tai Wan - UrlTest, Singapore - UrlTest, Japan - UrlTest, Korea - UrlTest, United States - UrlTest, Direct], icon: "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"}
 
 rules:
-  - AND, ((RULE-SET, geolocation-!cn_domain), (DST-PORT, 443), (NETWORK, UDP)), REJECT
-  - RULE-SET, private_ip, Direct, no-resolve
-  - RULE-SET, private_domain, Direct
-  - RULE-SET, ai_domain, AI
-  - RULE-SET, github_domain, GitHub
-  - RULE-SET, onedrive_domain, OneDrive
-  - RULE-SET, telegram_domain, Telegram
-  - RULE-SET, tiktok_domain, TikTok
-  - RULE-SET, youtube_domain, YouTube
-  - RULE-SET, netflix_domain, Netflix
-  - RULE-SET, spotify_domain, Spotify
-  - RULE-SET, steam@cn_domain, Direct
-  - RULE-SET, nintendo@cn_domain, Direct
-  - RULE-SET, xbox@cn_domain, Direct
-  - RULE-SET, steam_domain, Game 
-  - RULE-SET, epicgames_domain, Game
-  - RULE-SET, ea_domain, Game
-  - RULE-SET, playstation_domain, Game
-  - RULE-SET, nintendo_domain, Game
-  - RULE-SET, xbox_domain, Game
-  - RULE-SET, google_domain, Google
-  - RULE-SET, microsoft@cn_domain, Direct
-  - RULE-SET, microsoft_domain, Microsoft
-  - RULE-SET, apple@cn_domain, Direct
-  - RULE-SET, apple_domain, Apple
-  - RULE-SET, geolocation-!cn_domain, Static
-  - RULE-SET, telegram_ip, Telegram
-  - RULE-SET, cn_ip, Direct
+  - AND, ((RULE-SET, geolocation-!cn-domain), (DST-PORT, 443), (NETWORK, UDP)), REJECT
+  - RULE-SET, private-ip, Direct, no-resolve
+  - RULE-SET, private-domain, Direct
+  - RULE-SET, ai-domain, AI
+  - RULE-SET, github-domain, GitHub
+  - RULE-SET, onedrive-domain, OneDrive
+  - RULE-SET, telegram-domain, Telegram
+  - RULE-SET, tiktok-domain, TikTok
+  - RULE-SET, youtube-domain, YouTube
+  - RULE-SET, netflix-domain, Netflix
+  - RULE-SET, spotify-domain, Spotify
+  - RULE-SET, steam@cn-domain, Direct
+  - RULE-SET, nintendo@cn-domain, Direct
+  - RULE-SET, xbox@cn-domain, Direct
+  - RULE-SET, steam-domain, Game 
+  - RULE-SET, epicgames-domain, Game
+  - RULE-SET, ea-domain, Game
+  - RULE-SET, playstation-domain, Game
+  - RULE-SET, nintendo-domain, Game
+  - RULE-SET, xbox-domain, Game
+  - RULE-SET, google-domain, Google
+  - RULE-SET, microsoft@cn-domain, Direct
+  - RULE-SET, microsoft-domain, Microsoft
+  - RULE-SET, apple@cn-domain, Direct
+  - RULE-SET, apple-domain, Apple
+  - RULE-SET, geolocation-!cn-domain, Static
+  - RULE-SET, telegram-ip, Telegram
+  - RULE-SET, cn-ip, Direct
   - MATCH, Final
 
 rule-providers: 
-  fakeipfilter_cn: {<<: *class, url: "https://gh-proxy.com/https://raw.githubusercontent.com/EikoYin/Proxy/refs/heads/main/Rule/Mihomo/FakeIPFilter-CN.list"}
-  fakeipfilter_!cn: {<<: *class, url: "https://gh-proxy.com/https://raw.githubusercontent.com/EikoYin/Proxy/refs/heads/main/Rule/Mihomo/FakeIPFilter-!CN.list"}
-  private_ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs"}
-  private_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/private.mrs"}
-  ai_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ai-!cn.mrs"}
-  github_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/github.mrs"}
-  onedrive_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/onedrive.mrs"}
-  telegram_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/telegram.mrs"}
-  tiktok_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tiktok.mrs"}
-  youtube_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/youtube.mrs"}
-  netflix_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/netflix.mrs"}
-  spotify_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/spotify.mrs"}
-  steam@cn_domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/steam@cn.mrs"}
-  nintendo@cn_domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/nintendo@cn.mrs"}
-  xbox@cn_domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/xbox@cn.mrs"}
-  steam_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/steam.mrs"}
-  epicgames_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/epicgames.mrs"}
-  ea_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/ea.mrs"}
-  playstation_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/playstation.mrs"}
-  nintendo_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/nintendo.mrs"}
-  xbox_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/xbox.mrs"}
-  google_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/google.mrs"}
-  microsoft@cn_domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/microsoft@cn.mrs"}
-  microsoft_domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/microsoft.mrs"}
-  apple@cn_domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/apple@cn.mrs"}
-  apple_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/apple.mrs"}
-  geolocation-!cn_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/geolocation-!cn.mrs"}
-  cn_domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.mrs"}
-  telegram_ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/telegram.mrs"}
-  cn_ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs"}
+  fakeipfilter-cn: {<<: *class, url: "https://gh-proxy.com/https://raw.githubusercontent.com/EikoYin/Proxy/refs/heads/main/Rule/Mihomo/FakeIPFilter-CN.list"}
+  fakeipfilter-!cn: {<<: *class, url: "https://gh-proxy.com/https://raw.githubusercontent.com/EikoYin/Proxy/refs/heads/main/Rule/Mihomo/FakeIPFilter-!CN.list"}
+  private-ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/private.mrs"}
+  private-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/private.mrs"}
+  ai-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/category-ai-!cn.mrs"}
+  github-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/github.mrs"}
+  onedrive-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/onedrive.mrs"}
+  telegram-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/telegram.mrs"}
+  tiktok-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/tiktok.mrs"}
+  youtube-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/youtube.mrs"}
+  netflix-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/netflix.mrs"}
+  spotify-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/spotify.mrs"}
+  steam@cn-domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/steam@cn.mrs"}
+  nintendo@cn-domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/nintendo@cn.mrs"}
+  xbox@cn-domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/xbox@cn.mrs"}
+  steam-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/steam.mrs"}
+  epicgames-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/epicgames.mrs"}
+  ea-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/ea.mrs"}
+  playstation-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/playstation.mrs"}
+  nintendo-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/nintendo.mrs"}
+  xbox-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/xbox.mrs"}
+  google-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/google.mrs"}
+  microsoft@cn-domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/microsoft@cn.mrs"}
+  microsoft-domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/microsoft.mrs"}
+  apple@cn-domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/apple@cn.mrs"}
+  apple-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/apple.mrs"}
+  geolocation-!cn-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/geolocation-!cn.mrs"}
+  cn-domain: {<<: *domain, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geosite/cn.mrs"}
+  telegram-ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/telegram.mrs"}
+  cn-ip: {<<: *ip, url: "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/refs/heads/meta/geo/geoip/cn.mrs"}
