@@ -1,0 +1,165 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": true
+  },
+  
+  "experimental": {
+    "cache_file": {
+	  "enabled": true,
+      "path": "cache.db",
+      "store_dns": true
+    },
+    "clash_api": {
+      "external_controller": "0.0.0.0:9090",
+      "external_ui": "ui",
+      "external_ui_download_url": "https://gh-proxy.com/https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip",
+      "secret": "",
+      "default_mode": "Rule"
+    }
+  },
+
+  "dns": {
+    "servers": [
+      {"tag": "LocalDNS", "type": "https", "server": "223.5.5.5"},
+	  {"tag": "ProxyDNS", "type": "https", "server": "dns.google", "domain_resolver": "LocalDNS", "detour": "Static"},
+      {"tag": "FakeIP", "type": "fakeip", "inet4_range": "198.18.0.0/15"}
+    ],
+    "rules": [
+	  {"query_type": ["HTTPS", "SVCB"], "action": "reject"},
+      {"clash_mode": "Direct", "server": "LocalDNS"},
+      {"clash_mode": "Global", "server": "FakeIP"},
+      {"rule_set": ["fakeipfilter-cn", "geosite-private", "geosite-steam@cn", "geosite-nintendo@cn", "geosite-xbox@cn", "geosite-microsoft@cn", "geosite-apple@cn", "geosite-cn"], "server": "LocalDNS"},
+      {"rule_set": "fakeipfilter-!cn", "server": "ProxyDNS"},
+      {"type": "logical", "mode": "and", "rules": [{"query_type": ["A", "AAAA"]}, {"rule_set": "geosite-geolocation-!cn", "invert": true}], "action": "evaluate", "server": "ProxyDNS", "client_subnet": "223.5.5.0/24","timeout": "2s"},
+      {"match_response": true, "rule_set": "geoip-cn", "server": "LocalDNS"},
+      {"query_type": ["A", "AAAA"], "server": "FakeIP", "rewrite_ttl": 1}
+    ],
+    "final": "ProxyDNS",
+    "strategy": "ipv4_only", 
+    "cache_capacity": 8192,
+    "optimistic": {"enabled": true},
+    "reverse_mapping": true
+  },
+
+  "http_clients": [
+    {"tag": "download_detour", "detour": "Direct"}
+  ],
+
+  "inbounds": [
+    {
+      "tag": "dns-in",
+      "type": "direct",
+      "listen": "::",
+      "listen_port": 1053
+    },
+    {
+      "tag": "http-in",
+      "type": "http",
+      "listen": "::",
+      "listen_port": 8080
+    },
+    {
+      "tag": "socks-in",
+      "type": "socks",
+      "listen": "::",
+      "listen_port": 1080
+    },
+    {
+      "tag": "redirect-in",
+      "type": "redirect",
+      "listen": "::",
+      "listen_port": 7890
+    },
+    {
+      "tag": "tproxy-in",
+      "type": "tproxy",
+      "listen": "::",
+      "listen_port": 7891
+    },
+    {
+      "tag": "tun-in",
+      "type": "tun",
+      "interface_name": "momo",
+      "address": [
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
+      ],
+	  "stack": "mixed",
+      "auto_route": false,
+      "auto_redirect": false
+    }
+  ],
+
+  "outbounds": [
+    {"tag": "Static", "type": "selector", "outbounds": ["Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "Speed Test", "type": "urltest", "outbounds": []},
+    {"tag": "Proxy", "type": "selector", "outbounds": []},
+	{"tag": "Exit", "type": "selector", "outbounds": []},
+    {"tag": "AI", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "GitHub", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+	{"tag": "OneDrive", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "Telegram", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "TikTok", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "YouTube", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "Netflix", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "Spotify", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "Game", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "Google", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "Microsoft", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "Apple", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Direct"]},
+    {"tag": "Final", "type": "selector", "outbounds": ["Static", "Proxy", "Exit", "Direct"]},
+    {"tag": "Hong Kong", "type": "urltest", "outbounds": []},
+    {"tag": "Tai Wan", "type": "urltest", "outbounds": []},
+    {"tag": "Singapore", "type": "urltest", "outbounds": []},
+    {"tag": "Japan", "type": "urltest", "outbounds": []},
+    {"tag": "Korea", "type": "urltest", "outbounds": []},
+    {"tag": "United States", "type": "urltest", "outbounds": []},
+	{"tag": "Transfer", "type": "selector", "outbounds": ["Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States"]},
+    {"tag": "GLOBAL", "type": "selector", "outbounds": ["Static", "Speed Test", "Proxy", "Exit", "AI", "GitHub", "OneDrive", "Telegram", "TikTok", "YouTube", "Netflix", "Spotify", "Game", "Google", "Microsoft", "Apple", "Final", "Hong Kong", "Tai Wan", "Singapore", "Japan", "Korea", "United States", "Transfer", "Direct"]},
+    {"tag": "Direct", "type": "direct"}
+  ],
+
+  "route": {
+    "rules": [
+      {"type": "logical", "mode": "or", "rules": [{"domain_suffix": "push.apple.com"}, {"rule_set": "geoip-telegram"}], "invert": true, "action": "sniff", "sniffer": ["http", "tls", "stun", "quic", "dns"], "timeout": "200ms"},
+      {"inbound": "dns-in", "action": "hijack-dns"},
+      {"ip_is_private": true, "outbound": "Direct"},
+	  {"type": "logical", "mode": "or", "rules": [{"port": 853}, {"protocol": ["stun", "quic"]}], "action": "reject", "no_drop": true},
+      {"clash_mode": "Direct", "outbound": "Direct"},
+      {"clash_mode": "Global", "outbound": "GLOBAL"},
+      {"rule_set": "geosite-private", "outbound": "Direct"},
+      {"rule_set": "geosite-category-ai-!cn", "outbound": "AI"},
+      {"rule_set": "geosite-github", "outbound": "GitHub"},
+	  {"rule_set": "geosite-onedrive", "outbound": "OneDrive"},
+      {"rule_set": "geosite-telegram", "outbound": "Telegram"},
+      {"rule_set": "geosite-tiktok", "outbound": "TikTok"},
+      {"rule_set": "geosite-youtube", "outbound": "YouTube"},
+      {"rule_set": "geosite-netflix", "outbound": "Netflix"},
+      {"rule_set": "geosite-spotify", "outbound": "Spotify"},
+	  {"rule_set": ["geosite-steam@cn", "geosite-nintendo@cn", "geosite-xbox@cn"], "outbound": "Direct"},
+      {"rule_set": ["geosite-steam", "geosite-epicgames", "geosite-ea", "geosite-playstation", "geosite-nintendo", "geosite-xbox"], "outbound": "Game"},
+      {"rule_set": "geosite-google", "outbound": "Google"},
+	  {"rule_set": "geosite-microsoft@cn", "outbound": "Direct"},
+      {"rule_set": "geosite-microsoft", "outbound": "Microsoft"},
+	  {"rule_set": "geosite-apple@cn", "outbound": "Direct"},
+      {"rule_set": "geosite-apple", "outbound": "Apple"},
+      {"rule_set": "geosite-geolocation-!cn", "outbound": "Static"},
+	  {"action": "resolve"},
+	  {"rule_set": "geoip-telegram", "outbound": "Telegram"},
+      {"rule_set": "geoip-cn", "outbound": "Direct"}
+    ],
+    "rule_set": [
+	  {"tag": "fakeipfilter-cn", "type": "remote", "format": "source", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/EikoYin/Proxy/refs/heads/main/Rule/SingBox/FakeIPFilter-CN.json"},
+	  {"tag": "fakeipfilter-!cn", "type": "remote", "format": "source", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/EikoYin/Proxy/refs/heads/main/Rule/SingBox/FakeIPFilter-!CN.json"},
+      {"tag": ["geosite-private", "geosite-category-ai-!cn", "geosite-github", "geosite-onedrive", "geosite-telegram", "geosite-tiktok", "geosite-youtube", "geosite-netflix", "geosite-spotify", "geosite-steam@cn", "geosite-nintendo@cn", "geosite-xbox@cn", "geosite-steam", "geosite-epicgames", "geosite-ea", "geosite-playstation", "geosite-nintendo", "geosite-xbox", "geosite-google", "geosite-microsoft@cn", "geosite-microsoft", "geosite-apple@cn", "geosite-apple", "geosite-geolocation-!cn", "geosite-cn"], "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/{tag}.srs"},
+      {"tag": "geoip-telegram", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs"},
+      {"tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-cn.srs"}
+    ],
+	"final": "Final",
+	"default_domain_resolver": {"server": "LocalDNS"},
+	"default_http_client": "download_detour",
+	"auto_detect_interface": false
+  }
+}
