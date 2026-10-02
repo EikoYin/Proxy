@@ -28,7 +28,7 @@
 
 ~~listen: 0.0.0.0:1053~~
 
-# Nikki → Mobile
+# Nikki → PC
 
 ~~port: 8080~~
 
@@ -58,3 +58,7 @@
 ## dns
 
 ~~listen: 0.0.0.0:1053~~
+
+# Nikki → Mobile
+
+同 Nikki → PC
