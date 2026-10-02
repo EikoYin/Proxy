@@ -1,19 +1,5 @@
 # Momo → Core
 
-## experimental
-
-~~"external_ui": "/etc/momo/run/ui"~~
-
-```json
-"external_ui": "/etc/sing-box/run/ui"
-```
-
-~~"path": "/etc/momo/run/cache.db"~~
-
-```json
-"path": "/etc/sing-box/run/cache.db"
-```
-
 ## inbounds
 
 ~~all~~
@@ -32,7 +18,7 @@
       "auto_redirect": true
     },
     {
-	  "tag": "mixed-in",
+      "tag": "mixed-in",
       "type": "mixed",
       "listen": "0.0.0.0",
       "listen_port": 7890
