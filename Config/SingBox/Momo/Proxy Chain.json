@@ -44,7 +44,7 @@
   },
   
   "http_clients": [
-    {"tag": "download_detour", "detour": "Direct"}
+    {"tag": "download-detour", "detour": "Direct"}
   ],
   
   "inbounds": [
@@ -159,7 +159,7 @@
     ],
     "final": "Final",
     "default_domain_resolver": {"server": "LocalDNS"},
-    "default_http_client": "download_detour",
+    "default_http_client": "download-detour",
     "auto_detect_interface": false
   }
 }
