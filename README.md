@@ -11,5 +11,5 @@
 - Icon 定制
 
 注：
-1. 默认配置文件为 OpenWrt 的 Nikki（Mihomo）和 Momo（SingBox 1.14.x）
+1. 默认配置文件为 OpenWrt 的 Nikki（Mihomo）和 Momo（SingBox 1.14.x + SubStore）
 2. Core、PC、Mobile 配置详见对应目录 README.md
