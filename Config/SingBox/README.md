@@ -28,16 +28,26 @@
 
 ## route
 
+~~{"domain_suffix": "push.apple.com", "invert": true, "action": "sniff", "sniffer": ["http", "tls", "stun", "quic", "dns"], "timeout": "200ms"}~~
+
 ~~{"inbound": "dns-in", "action": "hijack-dns"}~~
 
 ```json
-{"type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns"}
+      {"type": "logical", "mode": "and", "rules": [{"port": [53, 853], "invert": true}, {"clash_mode": "Global", "invert": true}, {"type": "logical", "mode": "or", "rules": [{"ip_is_private": true}, {"rule_set": "geoip-cn"}]}], "action": "bypass"},
+      {"domain_suffix": "push.apple.com", "invert": true, "action": "sniff", "sniffer": ["http", "tls", "stun", "quic", "dns"], "timeout": "200ms"},
+      {"type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns"},
+```
+
+~~{"action": "resolve"}~~
+
+```json
+      {"inbound": "mixed-in", "action": "resolve"}
 ```
 
 ~~"auto_detect_interface": false~~
 
 ```json
-"auto_detect_interface": true
+    "auto_detect_interface": true
 ```
 
 # Momo → Mobile
